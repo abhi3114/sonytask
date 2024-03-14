@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:mem:sonydatabase
+    driverClassName: org.h2.Driver
+    username: sonydatabase
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+      display-request-duration: true
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+  datasource:
+    url: jdbc:h2:mem:sonydatabaseproduction
+    driverClassName: org.h2.Driver
+    username: sonydatabase
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+      display-request-duration: true
